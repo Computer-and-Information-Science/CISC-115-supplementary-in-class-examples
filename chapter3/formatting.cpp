@@ -3,8 +3,6 @@
 using namespace std;
 
 int main() {
-
-    cout << "=== 3. fixed + setprecision ===\n";
     double pi = 3.14159265358979;
     cout << "Default: " << pi << "\n";
     // change precision to 3
