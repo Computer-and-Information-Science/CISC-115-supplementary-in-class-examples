@@ -8,16 +8,16 @@ int main(){
     cin >> grade;
 
     // compute the equivalent letter grade
-    if (grade > 90)
+    if (grade >= 90)
         cout << "A" << endl;
-    else if(grade > 80) 
+    else if(grade >= 80) 
         cout << "B" << endl;
-    else if(grade > 70) 
+    else if(grade >= 70) 
         cout << "C" << endl;
-    else if(grade > 60) 
+    else if(grade >= 60) 
         cout << "D" << endl;
     else 
-        cout << "E" << endl;
+        cout << "F" << endl;
 
     return 0;
 }
