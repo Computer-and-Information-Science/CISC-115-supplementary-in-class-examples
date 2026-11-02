@@ -36,7 +36,7 @@ int main() {
 
     int previousIndex, commaIndex;
     string line;
-    string firstName, lastName, initialDate;
+    string firstName, lastName, date;
     while(getline(inData, line)) {
         commaIndex = line.find(",", 0);
         lastName = line.substr(0, commaIndex);
@@ -48,17 +48,17 @@ int main() {
         int firstNonWhitespace = firstName.find_first_not_of(" ");
         firstName = firstName.substr(firstNonWhitespace, firstName.find_last_not_of(" ") - firstNonWhitespace);
 
-        initialDate = line.substr(commaIndex + 1, line.length());
+        // parse the date
+        date = line.substr(commaIndex + 1, line.length());
         
-        int monthIndex = initialDate.find("/", 0);
-        string monthStr = monthName(stoi(initialDate.substr(0, monthIndex)));
-        initialDate.erase(0, monthIndex + 1);
+        int slashIndex = date.find("/", 0);
+        // stoi converts a string representation of a number to an int (e.g., "12" into the int 12).
+        string monthStr = monthName(stoi(date.substr(0, slashIndex)));
 
-        int dayIndex = initialDate.find("/", 0);
-        string dayStr = initialDate.substr(0, dayIndex);
-        initialDate.erase(0, dayIndex + 1);
+        int slashIndex2 = date.find("/", slashIndex + 1);
+        string dayStr = date.substr(slashIndex + 1, slashIndex2 - slashIndex - 1);
 
-        string year = initialDate;
+        string year = date.substr(slashIndex2 + 1, 4);
 
         cout << firstName << " " << lastName << ", " << monthStr << " " << dayStr << ", " << year << endl;
     }
